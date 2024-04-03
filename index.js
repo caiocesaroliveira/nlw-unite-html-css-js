@@ -105,9 +105,21 @@ const adicionarParticipante = (event) => {
 
   const dadosDoFormulario = new FormData(event.target)
 
+  const nome = dadosDoFormulario.get('nome')
+  if (!nome) {
+    alert('Nome deve ser informado.')
+    return
+  }
+
+  const email = dadosDoFormulario.get('email')
+  if (!email) {
+    alert('Email deve ser informado.')
+    return
+  }
+
   const participante = {
-    nome: dadosDoFormulario.get('nome'),
-    email: dadosDoFormulario.get('email'),
+    nome,
+    email,
     dataInscricao: new Date(),
     dataCheckIn: null,
   }
